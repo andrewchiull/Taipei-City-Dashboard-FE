@@ -75,7 +75,7 @@ export const TaipeiVillage = {
 export const TaipeiBuilding = {
 	id: "taipei_building_3d",
 	source: "taipei_building_3d_source",
-	"source-layer": "tp_building_height84-18p8j0",
+	"source-layer": "tp_building_height84-018drq", // [Add 3D Taipei Buildings Model (Optional)](https://tuic.gov.taipei/documentation/front-end/project-setup#add-3d-taipei-buildings-model-(optional))
 	type: "fill-extrusion",
 	minzoom: 14,
 	paint: {
