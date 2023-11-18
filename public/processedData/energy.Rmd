@@ -1,0 +1,21 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+getwd()
+library(glue)
+```
+
+
+### Load Data
+```{r}
+raw_data <- read.csv("Taipei City Energy Poverty.csv", header = TRUE)
+raw_data
+```
+```{r}
+library(ggplot2)
+plot <- ggplot(data=raw_data, aes(x=X2020income, y=X2020power)) +
+  geom_point() +
+  geom_smooth(method="lm", se=TRUE, color="blue", fill="lightblue") +
+  labs(title="X-Y Scatter Plot with Regression Line", x="X", y="Y")
+plot
+```

@@ -32,3 +32,4 @@ firebase.json
 
 dist.tar.gz
 *.sh
+.Rproj.user
