@@ -5,6 +5,6 @@
 	"editor.detectIndentation": false,
 	"editor.tabSize": 4,
 	"[vue]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "Vue.volar"
 	}
 }

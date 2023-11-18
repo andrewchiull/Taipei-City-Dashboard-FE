@@ -1,7 +1,8 @@
 {
 	"data": [
 		{
-			"name": "",
+			"name": "box",
+			"type": "boxPlot",
 			"data": [
 				{
 					"x": "category 1",
@@ -15,6 +16,24 @@
 					"x": "category n",
 					"y": [52.76, 57.35, 59.15, 63.03, 67.98]
 				}
+			]
+		},
+		{
+			"name": "outliers",
+			"type": "scatter",
+			"data": [
+			  {
+				"x": "category 1",
+				"y": 32
+			  },
+			  {
+				"x": "category 2",
+				"y": 25
+			  },
+			  {
+				"x": "category 3",
+				"y": 64
+			  }
 			]
 		}
 	]
