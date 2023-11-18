@@ -4197,6 +4197,90 @@
 
 			],
 			"contributors": ["ntu777"]
+		},
+		"703": {
+			"id": 703,
+			"index": "703",
+			"map_config": [
+				{
+					"index": "scatter_test",
+					"paint": {
+						"circle-color": [
+							"interpolate",
+							["linear"],
+							["get", "age_2021"],
+							5,
+							"#8ce8ff",
+							6,
+							"#7febd0",
+							21,
+							"#b7e28e",
+							41,
+							"#81612a"
+						],
+						"circle-radius": [
+							"interpolate",
+							["linear"],
+							["zoom"],
+							11.99,
+							0,
+							12,
+							0.5,
+							15,
+							2,
+							18,
+							5
+						]
+					},
+					"property": [
+						{
+							"key": "ptname",
+							"name": "行政區"
+						},
+						{
+							"key": "addr_key",
+							"name": "地址"
+						},
+						{
+							"key": "age_2021",
+							"name": "屋齡"
+						}
+					],
+					"type": "circle",
+					"title": "屋齡"
+				}
+			],
+			"chart_config": {
+				"color": ["#9c7a3e", "#b7e28e", "#7febd0", "#8ce8ff"],
+				"types": ["BarPercentChart", "ColumnChart"],
+				"unit": "棟",
+				"categories": [
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12
+				]
+			},
+			"name": "scatter_test(#42全市屋齡分布)",
+			"source": "都發局/消防局",
+			"time_from": "2023-06-02T00:00:00+08:00",
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "顯示當前全市建築屋齡分佈情況",
+			"long_desc": "顯示當前全市建築屋齡分佈情況，資料來源為台北市都發局及消防局，不定期更新。",
+			"use_case": "屋齡的計算基準是以建物使用執照生效年份起算，這可以作為了解台北市建築屋齡分佈情況的參考依據。",
+			"links": null,
+			"tags": [],
+			"contributors": ["tuic"]
 		}
 	}
 }
