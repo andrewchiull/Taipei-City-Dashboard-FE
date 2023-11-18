@@ -178,6 +178,9 @@ export const useMapStore = defineStore("map", {
 			});
 			if (map_config.type === "arc") {
 				this.AddArcMapLayer(map_config, data);
+			} else if (map_config.type === "buffer") {
+				// Call the function to handle the 'buffer' type
+				this.AddBufferMapLayer(map_config, data);
 			} else {
 				this.addMapLayer(map_config);
 			}
@@ -319,6 +322,123 @@ export const useMapStore = defineStore("map", {
 						tb.update(); //update Threebox scene
 					},
 				});
+				this.currentLayers.push(map_config.layerId);
+				this.mapConfigs[map_config.layerId] = map_config;
+				this.currentVisibleLayers.push(map_config.layerId);
+				this.loadingLayers = this.loadingLayers.filter(
+					(el) => el !== map_config.layerId
+				);
+			}, delay);
+		},
+		// 4-2. Add Map Layer for Arc Maps
+		AddBufferMapLayer(map_config, data) {
+			const authStore = useAuthStore();
+			const points = [...JSON.parse(JSON.stringify(data.features))];
+
+			const radius = 1000;
+
+			this.loadingLayers.push("rendering");
+
+			const polygonsSet = points.map((point) => {
+				return circleCoordinates(point.geometry.coordinates, radius);
+			});
+
+			const bufferData =
+				setsOfPointsToGeoJSONMultiLineString(polygonsSet);
+
+			function circleCoordinates(location, radius) {
+				const EARTH_RADIUS = 6371000; // Earth radius in meters
+				const degreesBetweenPoints = 2; // 180 sides
+				const numberOfPoints = Math.floor(360 / degreesBetweenPoints);
+				const distRadians = radius / EARTH_RADIUS;
+				const centerLatRadians = (location[1] * Math.PI) / 180;
+				const centerLonRadians = (location[0] * Math.PI) / 180;
+				const polygons = []; // Array to hold all the points
+
+				for (let index = 0; index <= numberOfPoints; index++) {
+					const degrees = index * degreesBetweenPoints;
+					const degreeRadians = (degrees * Math.PI) / 180;
+					const pointLatRadians = Math.asin(
+						Math.sin(centerLatRadians) * Math.cos(distRadians) +
+							Math.cos(centerLatRadians) *
+								Math.sin(distRadians) *
+								Math.cos(degreeRadians)
+					);
+					const pointLonRadians =
+						centerLonRadians +
+						Math.atan2(
+							Math.sin(degreeRadians) *
+								Math.sin(distRadians) *
+								Math.cos(centerLatRadians),
+							Math.cos(distRadians) -
+								Math.sin(centerLatRadians) *
+									Math.sin(pointLatRadians)
+						);
+					const pointLat = (pointLatRadians * 180) / Math.PI;
+					const pointLon = (pointLonRadians * 180) / Math.PI;
+					const point = { latitude: pointLat, longitude: pointLon };
+					polygons.push(point);
+				}
+				return polygons;
+			}
+
+			function setsOfPointsToGeoJSONMultiLineString(
+				setsOfPoints,
+				name,
+				type
+			) {
+				const coordinates = setsOfPoints.map((points) =>
+					points.map((point) => [point.longitude, point.latitude])
+				);
+
+				if (coordinates.length < 2) {
+					// MultiLineString must have at least 2 sets of points
+					throw new Error(
+						"Invalid number of sets of points for a MultiLineString"
+					);
+				}
+
+				const multiLineStringFeature = {
+					type: "Feature",
+					properties: {
+						name: name || "",
+						type: type || "",
+					},
+					geometry: {
+						type: "MultiLineString",
+						coordinates: coordinates,
+					},
+				};
+
+				return {
+					type: "FeatureCollection",
+					crs: {
+						type: "name",
+						properties: {
+							name: "urn:ogc:def:crs:OGC:1.3:CRS84",
+						},
+					},
+					features: [multiLineStringFeature],
+				};
+			}
+
+			const delay = authStore.isMobileDevice ? 2000 : 500;
+
+			setTimeout(() => {
+				this.map.addLayer({
+					id: map_config.layerId,
+					source: `${map_config.layerId}-source`,
+					type: "fill",
+					paint: {
+						"fill-color": "#F1CF65",
+						"fill-opacity": 0.1,
+					},
+				});
+
+				this.map
+					.getSource(`${map_config.layerId}-source`)
+					.setData(bufferData);
+
 				this.currentLayers.push(map_config.layerId);
 				this.mapConfigs[map_config.layerId] = map_config;
 				this.currentVisibleLayers.push(map_config.layerId);
