@@ -513,7 +513,7 @@
 							"name": "結束日期"
 						}
 					],
-					"type": "symbol",
+					"type": "buffer",
 					"icon": "triangle_green",
 					"title": "施工路段"
 				}
