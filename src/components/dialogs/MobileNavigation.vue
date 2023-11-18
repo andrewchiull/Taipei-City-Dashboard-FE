@@ -17,7 +17,7 @@ const contentStore = useContentStore();
 				<div class="dialogcontainer-background" @click="dialogStore.hideAllDialogs"></div>
 				<div class="dialogcontainer-dialog">
 					<div class="mobilenavigation">
-						<h2>我的最愛</h2>
+						<!-- <h2>我的最愛</h2>
 						<SideBarTab icon="favorite" title="收藏組件" :expanded="true" index="favorites"
 							@click="dialogStore.hideAllDialogs" />
 						<h2>儀表板列表</h2>
@@ -27,7 +27,7 @@ const contentStore = useContentStore();
 							@click="dialogStore.hideAllDialogs" />
 						<h2>基本地圖圖層</h2>
 						<SideBarTab :icon="`public`" :title="`圖資資訊`" index="map-layers" :expanded="true"
-							@click="dialogStore.hideAllDialogs" />
+							@click="dialogStore.hideAllDialogs" /> -->
 					</div>
 				</div>
 			</div>

@@ -107,7 +107,7 @@ function getLinkTag(link, index) {
 					</div>
 				</div>
 				<div class="moreinfo-info-control">
-					<button
+					<!-- <button
 						@click="
 							dialogStore.showReportIssue(
 								dialogStore.moreInfoContent.id,
@@ -116,7 +116,7 @@ function getLinkTag(link, index) {
 						"
 					>
 						<span>flag</span>回報問題
-					</button>
+					</button> -->
 					<button
 						v-if="
 							dialogStore.moreInfoContent.chart_config

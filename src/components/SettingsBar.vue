@@ -40,7 +40,7 @@ function handleToggle() {
 
 <template>
 	<div class="settingsbar">
-		<div class="settingsbar-title">
+		<!-- <div class="settingsbar-title">
 			<span>{{ contentStore.currentDashboard.icon }}</span>
 			<h2>{{ contentStore.currentDashboard.name }}
 			</h2>
@@ -59,7 +59,7 @@ function handleToggle() {
 				</button>
 				<DashboardSettings />
 			</div>
-		</div>
+		</div> -->
 		<div class="settingsbar-navigation show-if-mobile">
 			<p>圖表</p>
 			<div>
