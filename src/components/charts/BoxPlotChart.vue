@@ -27,121 +27,65 @@ const chartOptions = ref({
 	},
 	// colors: props.chart_config.color,
 
-	dataLabels: {
-		// enabled: props.chart_config.categories ? false : true,
-	},
 	legend: {
 		show: true
 	},
-	markers: {
-		size: 4,
-	},
+
 	stroke: {
+		// of boxPlot
 		show: true,
-		// curve: 'smooth',
-		// lineCap: 'butt',
 		colors: ["#FFFFFF"],
-		width: 1,
-		// dashArray: 0,
+		width: 2,
 	},
+
 	plotOptions: {
 		boxPlot: {
-			// colors: {
-			// 	// upper: '#2dcfa1',
-			// 	// lower: '#1155a8'
-			// }
-		},
-		scatter: {
-
+			colors: {
+				upper: '#2dcfa1',
+				lower: '#1155a8'
+			}
 		}
+	},
 
+
+
+
+
+	// Outliers
+	markers: {
+		colors: ["#888787"],
+		size: 5,
+		strokeColors: '#FFFFFF',
+		strokeWidth: 2,
 	},
+
+
 	xaxis: {
-		// type: 'datetime',
-		// tooltip: {
-		// 	formatter: function (val) {
-		// 		return new Date(val).getFullYear()
-		// 	}
-		// }
-	},
-	tooltip: {
-		shared: false,
-		intersect: true
+		labels: {
+			// show: false
+		},
+		tooltip: {
+			enabled: false
+		},
 	},
 	yaxis: {
-		// show: true,
-		// showAlways: true,
-		// showForNullSeries: true,
-		// seriesName: undefined,
-		// opposite: false,
-		// reversed: false,
-		// logarithmic: false,
-		// logBase: 10,
 		tickAmount: 5,
 		min: 0,
 		max: 100,
-		// forceNiceScale: false,
-		// floating: false,
-		// decimalsInFloat: undefined,
-		// labels: {
-		// 	show: true,
-		// 	align: 'right',
-		// 	minWidth: 0,
-		// 	maxWidth: 160,
-		// 	style: {
-		// 		colors: [],
-		// 		fontSize: '12px',
-		// 		fontFamily: 'Helvetica, Arial, sans-serif',
-		// 		fontWeight: 400,
-		// 		cssClass: 'apexcharts-yaxis-label',
-		// 	},
-		// 	offsetX: 0,
-		// 	offsetY: 0,
-		// 	rotate: 0,
-		// 	// formatter: (value) => { return val },
-		// },
-		// axisBorder: {
-		// 	show: true,
-		// 	color: '#78909C',
-		// 	offsetX: 0,
-		// 	offsetY: 0
-		// },
-		// axisTicks: {
-		// 	show: true,
-		// 	borderType: 'solid',
-		// 	color: '#78909C',
-		// 	width: 6,
-		// 	offsetX: 0,
-		// 	offsetY: 0
-		// },
-		// title: {
-		// 	text: undefined,
-		// 	rotate: -90,
-		// 	offsetX: 0,
-		// 	offsetY: 0,
-		// 	style: {
-		// 		color: undefined,
-		// 		fontSize: '12px',
-		// 		fontFamily: 'Helvetica, Arial, sans-serif',
-		// 		fontWeight: 600,
-		// 		cssClass: 'apexcharts-yaxis-title',
-		// 	},
-		// },
-		// crosshairs: {
-		// 	show: true,
-		// 	position: 'back',
-		// 	stroke: {
-		// 		color: '#b6b6b6',
-		// 		width: 1,
-		// 		dashArray: 0,
-		// 	},
-		// },
-		// tooltip: {
-		// 	enabled: true,
-		// 	offsetX: 0,
-		// },
+	},
 
-	}
+	// Customized tooltip by tuic
+	tooltip: {
+		theme: "dark"
+
+		// // The class "chart-tooltip" could be edited in /assets/styles/chartStyles.css
+		// custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+		// 	return '<div class="chart-tooltip">' +
+		// 		'<h6>' + w.globals.labels[dataPointIndex] + `${props.chart_config.categories ? '-' + w.globals.seriesNames[seriesIndex] : ''}` + '</h6>' +
+		// 		'<span>' + series[seriesIndex][dataPointIndex] + ` ${props.chart_config.unit}` + '</span>' +
+		// 		'</div>';
+		// },
+	},
 
 }
 )
@@ -170,8 +114,14 @@ function handleDataSelection(e, chartContext, config) {
 
 <template>
 	<div v-if="activeChart === 'BoxPlotChart'">
-		<apexchart width="100%" height="270px" type="boxPlot" :options="chartOptions" :series="series"
-			@dataPointSelection="handleDataSelection">
-		</apexchart>
+	<apexchart
+		width="100%"
+		height="270px"
+		type="boxPlot" 
+		:options="chartOptions" 
+		:series="series"
+		@dataPointSelection="handleDataSelection"
+		>
+	</apexchart>
 	</div>
 </template>
