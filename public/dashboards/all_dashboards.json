@@ -78,7 +78,8 @@
 			"index": "demo",
 			"components": [
 				"201",
-				"202"
+				"202",
+				"701"
 			],
 			"icon": "star_half"
 		}
