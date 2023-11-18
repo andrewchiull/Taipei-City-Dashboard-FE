@@ -4180,11 +4180,11 @@
 			"history_data": false,
 			"chart_config": {
 				"types": ["BoxPlotChart"],
-				"color": ["#7CB4B8", "#70F8BA", "#CAFE48"],
+				"color": ["#008FFB", "#FEB019"],
 				"unit": "元"
 			},
-			"name": "身障福利服務補助金額",
-			"source": "社會局",
+			"name": "701",
+			"source": "(資料來源)",
 			"time_from": "2012-01-01T00:00:00+08:00",
 			"time_to": "2022-01-01T00:00:00+08:00",
 			"update_freq": 1,
@@ -4196,7 +4196,7 @@
 			"links": [
 				"https://data.taipei/dataset/detail?id=6079d6e8-7657-4007-b1c2-429733dbd762"
 			],
-			"contributors": ["tuic"]
+			"contributors": ["ntu777"]
 		}
 	}
 }

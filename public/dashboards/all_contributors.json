@@ -4,6 +4,11 @@
 			"id": "tuic",
 			"name": "臺北大數據中心",
 			"link": "https://tuic.gov.taipei/zh"
+		},
+		"ntu777": {
+			"id": "ntu777",
+			"name": "ntu777",
+			"link": "https://github.com/andrewchiull/Taipei-City-Dashboard-FE"
 		}
 	}
 }
