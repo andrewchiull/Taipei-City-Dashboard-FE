@@ -25,41 +25,36 @@ const chartOptions = ref({
 			show: false
 		},
 	},
-	colors: props.chart_config.color,
-	labels: props.chart_config.categories ? props.chart_config.categories : [],
+	// colors: props.chart_config.color,
+
+	dataLabels: {
+		// enabled: props.chart_config.categories ? false : true,
+	},
+	legend: {
+		show: true
+	},
+	markers: {
+		size: 4,
+	},
+	stroke: {
+		show: true,
+		// curve: 'smooth',
+		// lineCap: 'butt',
+		colors: ["#FFFFFF"],
+		width: 1,
+		// dashArray: 0,
+	},
 	plotOptions: {
 		boxPlot: {
-			colors: {
-				upper: '#00E396',
-				lower: '#008FFB'
-			}
+			// colors: {
+			// 	// upper: '#2dcfa1',
+			// 	// lower: '#1155a8'
+			// }
 		},
 		scatter: {
 
 		}
-		
-	},
-	// [markers – ApexCharts.js](https://apexcharts.com/docs/options/markers/)
-	markers: {
-		size: 10,
-		colors: ["#008FFB", "#00E396"],
-		strokeColors: '#fff',
-		strokeWidth: 2,
-		strokeOpacity: 0.9,
-		strokeDashArray: 0,
-		fillOpacity: 1,
-		discrete: [],
-		shape: "circle",
-		radius: 2,
-		offsetX: 0,
-		offsetY: 0,
-		onClick: undefined,
-		onDblClick: undefined,
-		showNullDataPoints: true,
-		hover: {
-			size: undefined,
-			sizeOffset: 3
-		}
+
 	},
 	xaxis: {
 		// type: 'datetime',
@@ -72,8 +67,81 @@ const chartOptions = ref({
 	tooltip: {
 		shared: false,
 		intersect: true
-	}
+	},
+	yaxis: {
+		// show: true,
+		// showAlways: true,
+		// showForNullSeries: true,
+		// seriesName: undefined,
+		// opposite: false,
+		// reversed: false,
+		// logarithmic: false,
+		// logBase: 10,
+		tickAmount: 5,
+		min: 0,
+		max: 100,
+		// forceNiceScale: false,
+		// floating: false,
+		// decimalsInFloat: undefined,
+		// labels: {
+		// 	show: true,
+		// 	align: 'right',
+		// 	minWidth: 0,
+		// 	maxWidth: 160,
+		// 	style: {
+		// 		colors: [],
+		// 		fontSize: '12px',
+		// 		fontFamily: 'Helvetica, Arial, sans-serif',
+		// 		fontWeight: 400,
+		// 		cssClass: 'apexcharts-yaxis-label',
+		// 	},
+		// 	offsetX: 0,
+		// 	offsetY: 0,
+		// 	rotate: 0,
+		// 	// formatter: (value) => { return val },
+		// },
+		// axisBorder: {
+		// 	show: true,
+		// 	color: '#78909C',
+		// 	offsetX: 0,
+		// 	offsetY: 0
+		// },
+		// axisTicks: {
+		// 	show: true,
+		// 	borderType: 'solid',
+		// 	color: '#78909C',
+		// 	width: 6,
+		// 	offsetX: 0,
+		// 	offsetY: 0
+		// },
+		// title: {
+		// 	text: undefined,
+		// 	rotate: -90,
+		// 	offsetX: 0,
+		// 	offsetY: 0,
+		// 	style: {
+		// 		color: undefined,
+		// 		fontSize: '12px',
+		// 		fontFamily: 'Helvetica, Arial, sans-serif',
+		// 		fontWeight: 600,
+		// 		cssClass: 'apexcharts-yaxis-title',
+		// 	},
+		// },
+		// crosshairs: {
+		// 	show: true,
+		// 	position: 'back',
+		// 	stroke: {
+		// 		color: '#b6b6b6',
+		// 		width: 1,
+		// 		dashArray: 0,
+		// 	},
+		// },
+		// tooltip: {
+		// 	enabled: true,
+		// 	offsetX: 0,
+		// },
 
+	}
 
 }
 )
