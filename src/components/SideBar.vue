@@ -38,9 +38,9 @@ onMounted(() => {
 	<div :class="{ sidebar: true, 'sidebar-collapse': !isExpanded, 'hide-if-mobile': true }">
 		<div class="sidebar-sub-add">
 			<h2>{{ isExpanded ? `儀表板列表` : `列表` }}</h2>
-			<!-- <button v-if="isExpanded"
+			<button v-if="isExpanded"
 				@click="dialogStore.showDialog('addDashboard')"><span>add_circle_outline</span>新增</button>
-			<AddDashboard /> -->
+			<AddDashboard />
 		</div>
 		<SideBarTab
 			v-for="item in contentStore.dashboards.filter((item) => item.index !== 'map-layers' && item.index !== 'favorites')"
@@ -50,8 +50,8 @@ onMounted(() => {
 		<button class="sidebar-collapse-button" @click="toggleExpand"><span>{{ isExpanded ? "keyboard_double_arrow_left" :
 			"keyboard_double_arrow_right"
 		}}</span></button>
-		<!-- <h2>{{ isExpanded ? `我的最愛` : `最愛` }}</h2>
-		<SideBarTab icon="favorite" title="收藏組件" :expanded="isExpanded" index="favorites" /> -->
+		<h2>{{ isExpanded ? `我的最愛` : `最愛` }}</h2>
+		<SideBarTab icon="favorite" title="收藏組件" :expanded="isExpanded" index="favorites" />
 	</div>
 </template>
 

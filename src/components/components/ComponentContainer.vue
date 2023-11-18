@@ -84,7 +84,51 @@ function toggleFavorite() {
 				</h3>
 				<h4>{{ `${content.source} | ${dataTime}` }}</h4>
 			</div>
-			
+			<div v-if="notMoreInfo">
+				<button
+					v-if="
+						!isMapLayer &&
+						contentStore.currentDashboard.index !== 'favorites'
+					"
+					:class="{
+						isfavorite: contentStore.favorites.includes(
+							`${content.id}`
+						),
+					}"
+					@click="toggleFavorite"
+				>
+					<span>favorite</span>
+				</button>
+				<!-- Change @click to a report issue function to implement functionality -->
+				<button
+					title="回報問題"
+					class="show-if-mobile"
+					@click="
+						dialogStore.showReportIssue(content.id, content.name)
+					"
+				>
+					<span>flag</span>
+				</button>
+				<!-- deleteComponent is currently a dummy function to demonstrate what adding components may look like
+                     Connect a backend to actually implement the function or remove altogether -->
+				<button
+					v-if="!isMapLayer"
+					@click="contentStore.deleteComponent(content.id)"
+					class="isDelete"
+				>
+					<span>delete</span>
+				</button>
+				<button
+					v-if="
+						!isMapLayer &&
+						contentStore.currentDashboard.index === 'favorites'
+					"
+					@click="contentStore.deleteComponent(content.id)"
+					class="isUnfavorite"
+				>
+					<span>delete</span>
+				</button>
+			</div>
 		</div>
 		<div
 			class="componentcontainer-control"
