@@ -68,3 +68,58 @@ Many thanks to the contributors to this project!
 <a href="https://github.com/tpe-doit/Taipei-City-Dashboard-FE/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=tpe-doit/Taipei-City-Dashboard-FE" />
 </a>
+
+
+# ntu777
+
+## Reference
+
+### Apexcharts
+https://apexcharts.com/docs/chart-types/boxplot/
+
+Chart Types
+
+- [x] Line Chart
+- [x] Area Chart
+- [x] Bar Chart
+- [x] Column Chart
+- [ ] **BoxPlot**
+	- [ ] [doc](https://apexcharts.com/docs/chart-types/boxplot/)
+		![picture 2](images/3927b1d146303e7e156c85be179a1ddb37613fb6fa3cd9153087bfb0bec3468c.png)  
+
+- [ ] **Candlestick**
+	- [ ] [doc](https://apexcharts.com/docs/chart-types/candlestick/)
+		![picture 1](images/cad3904c1175fe678e01986087d43892588b9c155b43bab88c66fa52fa6df48a.png)  
+
+- [ ] **Range Bar Chart**
+	- [ ] [doc](https://apexcharts.com/docs/chart-types/range-bar-chart/)
+		![picture 5](images/19ebaa7152b0ff577b0d77d46a674f6a2240c5a7acf2fc5399708d27c772da0c.png)  
+
+
+- [ ] **Range Area Chart**
+	- [ ] [doc](https://apexcharts.com/javascript-chart-demos/range-area-charts/combo/)
+		![picture 0](images/522d5206a70902b4906b74e517cef6ad3c5868265d155fb4d8a05e5232488202.png)  
+- [x] Heat Map Chart
+- [x] Treemap Chart
+- [ ] Funnel Chart
+	- [ ] [doc](https://apexcharts.com/docs/chart-types/funnel-chart/)
+	![picture 4](images/a367b1cdbe98ad5af4ce0ba67c07678c1c839bc2848e307897fc0a5df01b1a21.png)  
+
+- [ ] Multi-Axis Chart
+	- [ ] [doc](https://apexcharts.com/docs/chart-types/multiple-yaxis-scales/)
+		![picture 6](images/3aae7bb209ae9849012738e9a8292e695eee17963fc0099b1af3b8c8c6d03da4.png)  
+
+- [x] Pie / Donut
+- [x] Radar
+- [ ] **RadialBar / Circular Gauge**
+	有用過，但是做得更潮
+	- [ ] [doc](https://apexcharts.com/docs/chart-types/radialbar-gauge/)
+	- [ ] ![picture 3](images/cf451ca6e622307ee53e5e148684467848e0083c655d16c075e424023610e52d.png)  
+- [ ] Synchronized charts
+	- [ ] [doc](https://apexcharts.com/docs/chart-types/synchronized-charts/)
+	![picture 7](images/ede7acb517978fcd856d44e46c15f3f9e8b3f3738d50f89d59fb81bc5923e82c.png)  
+
+
+## Mapbox
+
+[Style a heatmap layer | Mapbox Studio manual | Mapbox](https://docs.mapbox.com/studio-manual/examples/heatmap-layer/)

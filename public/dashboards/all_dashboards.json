@@ -89,6 +89,17 @@
 				"106"
 			],
 			"icon": "public"
+		},
+		{
+			"name": "Demo",
+			"index": "demo",
+			"components": [
+				"201",
+				"202",
+				"701",
+				"703"
+			],
+			"icon": "star_half"
 		}
 	]
 }

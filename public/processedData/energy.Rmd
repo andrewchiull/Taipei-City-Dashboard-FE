@@ -1,0 +1,76 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+getwd()
+library(glue)
+```
+
+
+### Load Data
+```{r}
+
+file <- "./Taipei City Energy Poverty.csv"
+raw_data <- read.csv(file, header = TRUE)
+
+
+# all colnames with "power", "datanum", "income"
+numeric_colnames <- grep("power|datanum|income", colnames(raw_data), value = TRUE)
+
+# convert all numeric columns to numeric
+numeric_cols <- raw_data[numeric_colnames]
+power_cols <- apply(numeric_cols, 2, as.numeric)
+
+# add in to headers
+headers <- c("Area", "District")
+
+raw_data <- cbind(raw_data[headers], power_cols)
+
+# drop the rows with NA
+raw_data <- na.omit(raw_data)
+
+
+# Calculate and  the power per house in to data
+power_per_house_2018 <- raw_data$X2018power / raw_data$X2018datanum
+power_per_house_2019 <- raw_data$X2019power / raw_data$X2019datanum
+power_per_house_2020 <- raw_data$X2020power / raw_data$X2020datanum
+
+raw_data <- cbind(raw_data, power_per_house_2018, power_per_house_2019, power_per_house_2020)
+
+colnames(raw_data)
+
+```
+
+
+
+```{r}
+data <- raw_data
+
+# Filter out the outliers of the data (pr10~pr90)
+pr10 <- quantile(data$power_per_house_2020, 0.10)
+pr90 <- quantile(data$power_per_house_2020, 0.90)
+
+data <- data[data$power_per_house_2020 <= pr90 & data$power_per_house_2020 >= pr10, ]
+
+# boxplot
+boxplot(data$power_per_house_2020, col = "lightblue", border = "brown", horizontal = TRUE)
+
+```
+
+```{r}
+library(ggplot2)
+plot <- ggplot(data=data, aes(x=X2020income, y=power_per_house_2020)) +
+  geom_point() +
+  geom_smooth(method="lm", se=TRUE, color="blue", fill="lightblue") +
+  labs(title="X-Y Scatter Plot with Regression Line")
+plot
+
+# rows in data
+nrow(data)
+nrow(raw_data)
+```
+
+```{r}
+# save data as csv
+write.csv(data, file = "./Taipei City Energy Poverty Cleaned.csv", row.names = FALSE)
+```
+
