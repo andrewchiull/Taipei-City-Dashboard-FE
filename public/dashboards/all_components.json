@@ -4593,6 +4593,209 @@
 				"https://github.com/tpe-doit/YouBike-Optimization"
 			],
 			"contributors": ["tuic"]
-		}
+		},"201": {
+			"id": 201,
+			"index": "demo_disable_subsidy",
+			"history_data": false,
+			"chart_config": {
+				"types": ["TimelineSeparateChart", "TimelineStackedChart"],
+				"color": ["#7CB4B8", "#70F8BA", "#CAFE48"],
+				"unit": "元"
+			},
+			"name": "身障福利服務補助金額",
+			"source": "社會局",
+			"time_from": "2012-01-01T00:00:00+08:00",
+			"time_to": "2022-01-01T00:00:00+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "year",
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://data.taipei/dataset/detail?id=6079d6e8-7657-4007-b1c2-429733dbd762"
+			],
+			"contributors": ["tuic"]
+		},
+		"202": {
+			"id": 202,
+			"index": "demo_disable_facility",
+			"map_config": [
+				{
+					"index": "dis_origin_radius",
+					"paint": {
+						"line-color": "#B4654A",
+						"line-dasharray": [2, 2],
+						"line-opacity": 0.8
+					},
+					"property": [
+						{ "key": "name", "name": "機構名稱" },
+						{ "key": "attr", "name": "營運模式" },
+						{ "key": "type", "name": "類型" },
+						{ "key": "address", "name": "地址" }
+					],
+					"title": "身障友善場所服務範圍",
+					"type": "line"
+				},
+				{
+					"index": "dis_origin_center",
+					"paint": {
+						"circle-color": "pink"
+					},
+					"property": [
+						{ "key": "name", "name": "機構名稱" },
+						{ "key": "attr", "name": "營運模式" },
+						{ "key": "type", "name": "類型" },
+						{ "key": "address", "name": "地址" }
+					],
+					"title": "身障友善場所",
+					"type": "circle"
+				}
+			],
+			"chart_config": {
+				"types": ["DistrictChart", "ColumnChart"],
+				"color": ["#B4654A"],
+				"unit": "間",
+				"map_filter": [
+					"town",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
+			},
+			"name": "身障友善場所量能分布",
+			"source": "社會局",
+			"time_from": "2023-06-11T00:00:00+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "month",
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://data.taipei/dataset/detail?id=06a3d0c3-1949-4501-b16f-a0c4c036e2d5",
+				"https://data.taipei/dataset/detail?id=3c0cd5aa-ad4b-4695-b197-f9eb3405e556"
+			],
+			"contributors": ["tuic"]
+			},
+			"701": {
+				"id": 701,
+				"index": "ntu777_test01",
+				"history_data": false,
+				"chart_config": {
+					"types": ["BoxPlotChart"],
+					"color": ["#008FFB", "#FEB019"],
+					"unit": "元"
+				},
+				"name": "701",
+				"source": "(資料來源)",
+				"time_from": "2012-01-01T00:00:00+08:00",
+				"time_to": "2022-01-01T00:00:00+08:00",
+				"update_freq": 1,
+				"update_freq_unit": "year",
+				"short_desc": "",
+				"long_desc": "",
+				"use_case": "",
+				"tags": [],
+				"links": [
+	
+				],
+				"contributors": ["ntu777"]
+			},
+			"703": {
+				"id": 703,
+				"index": "703",
+				"map_config": [
+					{
+						"index": "scatter_test",
+						"paint": {
+							"circle-color": [
+								"interpolate",
+								["linear"],
+								["get", "age_2021"],
+								5,
+								"#8ce8ff",
+								6,
+								"#7febd0",
+								21,
+								"#b7e28e",
+								41,
+								"#81612a"
+							],
+							"circle-radius": [
+								"interpolate",
+								["linear"],
+								["zoom"],
+								11.99,
+								0,
+								12,
+								0.5,
+								15,
+								2,
+								18,
+								5
+							]
+						},
+						"property": [
+							{
+								"key": "ptname",
+								"name": "行政區"
+							},
+							{
+								"key": "addr_key",
+								"name": "地址"
+							},
+							{
+								"key": "age_2021",
+								"name": "屋齡"
+							}
+						],
+						"type": "circle",
+						"title": "屋齡"
+					}
+				],
+				"chart_config": {
+					"color": ["#9c7a3e", "#b7e28e", "#7febd0", "#8ce8ff"],
+					"types": ["ScatterChart", "ColumnChart"],
+					"unit": "棟",
+					"categories": [
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				},
+				"name": "scatter_test(#42全市屋齡分布)",
+				"source": "都發局/消防局",
+				"time_from": "2023-06-02T00:00:00+08:00",
+				"time_to": null,
+				"update_freq": null,
+				"update_freq_unit": null,
+				"short_desc": "顯示當前全市建築屋齡分佈情況",
+				"long_desc": "顯示當前全市建築屋齡分佈情況，資料來源為台北市都發局及消防局，不定期更新。",
+				"use_case": "屋齡的計算基準是以建物使用執照生效年份起算，這可以作為了解台北市建築屋齡分佈情況的參考依據。",
+				"links": null,
+				"tags": [],
+				"contributors": ["tuic"]
+			}
 	}
 }
