@@ -66,4 +66,11 @@ plot
 
 # rows in data
 nrow(data)
+nrow(raw_data)
 ```
+
+```{r}
+# save data as csv
+write.csv(data, file = "./Taipei City Energy Poverty Cleaned.csv", row.names = FALSE)
+```
+
