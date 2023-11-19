@@ -4563,7 +4563,7 @@
 					"icon": "triangle_white",
 					"property": [
 						{
-							"key": "water_storage",
+							"key": "solar",
 							"name": "發電量"
 						},
 						{
@@ -4592,6 +4592,341 @@
 				"https://tuic.gov.taipei/youbike",
 				"https://github.com/tpe-doit/YouBike-Optimization"
 			],
+			"contributors": ["tuic"]
+		},
+		"158": {
+			"id": 148,
+			"index": "PGS_Park_withCarbon",
+			"map_config": [
+				{
+					"index": "PGS_Park_withCarbon",
+					"type": "fill",
+					"paint": {
+						"fill-color": 
+						[
+							"interpolate",
+							["linear"],
+							["get", "Carbon"],
+							150000,
+							"#8ce8ff",
+							300000,
+							"#7febd0",
+							450000,
+							"#b7e28e",						
+							600000,
+							"#81612a"
+						]
+					},
+					"icon": "triangle_white",
+					"property": [
+						{
+							"key": "Carbon",
+							"name": "固碳量"
+						}
+					],
+					"title": "綠地固碳量"
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "fill",
+					"color": "#9D9152",
+					"name": "固碳量"
+				}
+			],
+			"name": "綠地固碳量",
+			"source": "資訊局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://tuic.gov.taipei/youbike",
+				"https://github.com/tpe-doit/YouBike-Optimization"
+			],
+			"contributors": ["tuic"]
+		},
+		"159": {
+			"id": 110,
+			"index": "street_trees",
+			"map_config": [
+				{
+					"index": "work_street_tree",
+					"paint": {
+						"circle-color": [
+							"match",
+							["get", "type"],
+							"臺灣欒樹",
+							"#FF4500",
+							"火燄木",
+							"#FF4500",
+							"落羽松",
+							"#FF4500",
+							"洋紅風鈴木",
+							"#FF4500",
+							"鳳凰木",
+							"#FF4500",
+							"楓香",
+							"#FF4500",
+							"大花紫薇",
+							"#905EE6",
+							"山櫻花",
+							"#EDAEEC",
+							"吉野櫻",
+							"#EDAEEC",
+							"八重櫻",
+							"#EDAEEC",
+							"寒櫻",
+							"#EDAEEC",
+							"日日櫻",
+							"#EDAEEC",
+							"富士櫻",
+							"#EDAEEC",
+							"河津櫻",
+							"#EDAEEC",
+							"黃花風鈴木",
+							"#FFFB00",
+							"阿勃勒",
+							"#FFFB00",
+							"印度紫檀",
+							"#FFFB00",
+							"西印度櫻桃",
+							"#FFFB00",
+							"#33C552"
+						],
+						"circle-opacity": [
+							"interpolate",
+							["linear"],
+							["get", "height"],
+							0,
+							0.75,
+							10,
+							1
+						],
+						"circle-radius": [
+							"interpolate",
+							["linear"],
+							["zoom"],
+							10.99,
+							0,
+							14,
+							2,
+							16,
+							[
+								"interpolate",
+								["linear"],
+								["get", "diameter"],
+								0,
+								2,
+								2,
+								4
+							]
+						]
+					},
+					"property": [
+						{
+							"key": "dist",
+							"name": "行政區"
+						},
+						{
+							"key": "type",
+							"name": "類型"
+						},
+						{
+							"key": "region_ps",
+							"name": "層區"
+						},
+						{
+							"key": "height",
+							"name": "高度"
+						},
+						{
+							"key": "diameter",
+							"name": "直徑"
+						},
+						{
+							"key": "survey_date",
+							"name": "紀錄時間"
+						}
+					],
+					"type": "circle",
+					"size": null,
+					"icon": null,
+					"title": "行道樹"
+				}
+			],
+			"chart_config": {
+				"color": ["#33C552"],
+				"types": ["DistrictChart", "ColumnChart"],
+				"unit": "棵",
+				"map_filter": [
+					"dist",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
+			},
+			"history_data": false,
+			"source": "工務局",
+			"time_from": "2022-08-15T00:00:00+08:00",
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"name": "行道樹",
+			"short_desc": "顯示全市各行政區的行道樹數量和分布位置",
+			"long_desc": "顯示全市各行政區的行道樹數量和分布位置，資料來源為台北市工務局開放資料，不定期更新。",
+			"use_case": "台北市行道樹的數量與分布位置資料，將幫助我們掌握行道樹的疏密情況，並進一步比較其與其他指標的相關性。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=7a49d00c-a5ff-4a6b-be9e-aaa6dc1ff7e8"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"160": {
+			"id": 110,
+			"index": "street_trees",
+			"map_config": [
+				{
+					"heatmap": {
+                        "filter": "type",
+                        "zoom": 16.5
+                    },
+
+					"index": "work_street_tree",
+					"paint": {
+                        "heatmap-intensity": [
+                            "interpolate",
+                            ["linear"],
+                            ["zoom"],
+                            0,
+                            1,
+                            24,
+                            3
+                        ],
+                        "heatmap-color": [
+                            "interpolate",
+                            ["exponential", 2],
+                            ["heatmap-density"],
+                            0,
+                            "rgba(33,102,172,0)",
+                            0.03125,
+                            "rgb(70,130,180)",
+                            0.0625,
+                            "rgb(103,169,207)",
+                            0.125,
+                            "rgb(173,216,230)",
+                            0.25,
+                            "rgb(255,255,0)",
+                            0.5,
+                            "rgb(255,165,0)",
+                            0.75,
+                            "rgb(255,99,71)",
+                            1,
+                            "rgb(178,24,43)"
+                        ],
+                        "heatmap-radius": [
+                            "interpolate",
+                            ["linear"],
+                            ["zoom"],
+                            0,
+                            2,
+                            24,
+                            10
+                        ],
+                        "heatmap-opacity": [
+                            "interpolate",
+                            ["linear"],
+                            ["zoom"],
+                            7,
+                            1,
+                            24,
+                            0
+                        ]
+                    },
+					"property": [
+						{
+							"key": "dist",
+							"name": "行政區"
+						},
+						{
+							"key": "type",
+							"name": "類型"
+						},
+						{
+							"key": "region_ps",
+							"name": "層區"
+						},
+						{
+							"key": "height",
+							"name": "高度"
+						},
+						{
+							"key": "diameter",
+							"name": "直徑"
+						},
+						{
+							"key": "survey_date",
+							"name": "紀錄時間"
+						}
+					],
+                    "type": "heatmap",
+                    "size": null,
+                    "icon": "heatmap",
+					"title": "行道樹"
+				}
+			],
+			"chart_config": {
+				"color": ["#33C552"],
+				"types": ["DistrictChart", "ColumnChart"],
+				"unit": "棵",
+				"map_filter": [
+					"dist",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
+			},
+			"history_data": false,
+			"source": "工務局",
+			"time_from": "2022-08-15T00:00:00+08:00",
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"name": "行道樹(heatmap)",
+			"short_desc": "顯示全市各行政區的行道樹數量和分布位置",
+			"long_desc": "顯示全市各行政區的行道樹數量和分布位置，資料來源為台北市工務局開放資料，不定期更新。",
+			"use_case": "台北市行道樹的數量與分布位置資料，將幫助我們掌握行道樹的疏密情況，並進一步比較其與其他指標的相關性。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=7a49d00c-a5ff-4a6b-be9e-aaa6dc1ff7e8"
+			],
+			"tags": [],
 			"contributors": ["tuic"]
 		},"201": {
 			"id": 201,
