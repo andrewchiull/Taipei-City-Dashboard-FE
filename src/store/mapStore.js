@@ -335,17 +335,24 @@ export const useMapStore = defineStore("map", {
 			const authStore = useAuthStore();
 			const points = [...JSON.parse(JSON.stringify(data.features))];
 
-			const radius = 1000;
+			const radius = 100;
 
 			this.loadingLayers.push("rendering");
 
-			const polygonsSet = points.map((point) => {
-				return circleCoordinates(point.geometry.coordinates, radius);
-			});
+			const bufferData = renderBufferData(points, radius);
 
-			const bufferData =
-				setsOfPointsToGeoJSONMultiLineString(polygonsSet);
+			function renderBufferData(points, radius) {
+				const polygonsSet = points.map((point) => {
+					return circleCoordinates(
+						point.geometry.coordinates,
+						radius
+					);
+				});
 
+				const bufferData =
+					setsOfPointsToGeoJSONMultiLineString(polygonsSet);
+				return bufferData;
+			}
 			function circleCoordinates(location, radius) {
 				const EARTH_RADIUS = 6371000; // Earth radius in meters
 				const degreesBetweenPoints = 2; // 180 sides
@@ -381,7 +388,6 @@ export const useMapStore = defineStore("map", {
 				}
 				return polygons;
 			}
-
 			function setsOfPointsToGeoJSONMultiLineString(
 				setsOfPoints,
 				name,
@@ -422,6 +428,15 @@ export const useMapStore = defineStore("map", {
 				};
 			}
 
+			function generateRandomColor() {
+				const letters = "0123456789ABCDEF";
+				let color = "#";
+				for (let i = 0; i < 6; i++) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+			}
+
 			const delay = authStore.isMobileDevice ? 2000 : 500;
 
 			setTimeout(() => {
@@ -430,7 +445,7 @@ export const useMapStore = defineStore("map", {
 					source: `${map_config.layerId}-source`,
 					type: "fill",
 					paint: {
-						"fill-color": "#F1CF65",
+						"fill-color": generateRandomColor(),
 						"fill-opacity": 0.1,
 					},
 				});
@@ -446,10 +461,61 @@ export const useMapStore = defineStore("map", {
 					(el) => el !== map_config.layerId
 				);
 			}, delay);
+
+			const controlPanel = document.getElementById("map-control-panel");
+			const controlPanelContainer = document.createElement("div");
+			controlPanelContainer.style.cssText =
+				"margin-top: 5px; margin-left: 10px; margin-right: 10px;";
+
+			controlPanelContainer.id = `${map_config.layerId}-control`;
+			controlPanelContainer.style.color = "black";
+			const slider = document.createElement("input");
+			slider.type = "range";
+			slider.min = "0";
+			slider.max = "2000";
+			slider.value = "100";
+			slider.style.padding = "0px";
+			slider.step = "100";
+			// 显示滑动条的值
+			const layerName = document.createElement("span");
+			layerName.textContent = map_config.title;
+			layerName.style.cssText =
+				"color: black; width: 100px; display: inline-block; text-align: left;";
+			// 显示滑动条的值
+			const valueDisplay = document.createElement("span");
+			valueDisplay.textContent = slider.value.toString() + " m";
+			valueDisplay.style.cssText =
+				"color: black; width: 50px; display: inline-block; text-align: right;";
+
+			// 将 slider 和单位标签添加到 .map-control-panel 中
+			controlPanel.appendChild(controlPanelContainer);
+			controlPanelContainer.appendChild(layerName);
+			controlPanelContainer.appendChild(slider);
+			controlPanelContainer.appendChild(valueDisplay);
+
+			const self = this;
+			// 添加事件监听器，当滑动时触发
+			slider.addEventListener("input", function (event) {
+				// 获取滑动条的当前值
+				const radius = event.target.value;
+
+				valueDisplay.textContent = radius.toString() + " m";
+
+				const bufferData = renderBufferData(points, radius);
+				self.map
+					.getSource(`${map_config.layerId}-source`)
+					.setData(bufferData);
+			});
 		},
 		//  5. Turn on the visibility for a exisiting map layer
 		turnOnMapLayerVisibility(mapLayerId) {
 			this.map.setLayoutProperty(mapLayerId, "visibility", "visible");
+			const controlPanel = document.getElementById(
+				`${mapLayerId}-control`
+			);
+			if (controlPanel) {
+				controlPanel.style.display = "block";
+			}
 		},
 		// 6. Turn off the visibility of an exisiting map layer but don't remove it completely
 		turnOffMapLayerVisibility(map_config) {
@@ -470,6 +536,12 @@ export const useMapStore = defineStore("map", {
 				this.currentVisibleLayers = this.currentVisibleLayers.filter(
 					(element) => element !== mapLayerId
 				);
+				const controlPanel = document.getElementById(
+					`${mapLayerId}-control`
+				);
+				if (controlPanel) {
+					controlPanel.style.display = "none";
+				}
 			});
 			this.removePopup();
 		},

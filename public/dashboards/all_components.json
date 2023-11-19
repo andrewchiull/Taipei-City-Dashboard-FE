@@ -797,7 +797,9 @@
 							"招標中及待上網",
 							"#c2651c",
 							"#a65818"
-						]
+						],
+						"circle-stroke-color": "rgba(0, 0, 0, 0.5)",
+						"circle-stroke-width": 2
 					},
 					"property": [
 						{
@@ -2107,7 +2109,7 @@
 							"name": "列車擁擠程度"
 						}
 					],
-					"type": "symbol",
+					"type": "buffer",
 					"size": null,
 					"icon": "metro-density",
 					"title": "板南線車站"
@@ -4071,6 +4073,520 @@
 			"short_desc": "",
 			"long_desc": "展示YouBike未設站區域的潛在需求，詳細預測方法可參考開源成果Github。資料來源為臺北大數據中心研究，更新頻率不定期。",
 			"use_case": "本組件可讓您掌握目前未設站地區，以及該地區可能有多少需求。這有助於規劃YouBike的擴展，並規劃適當的資源以滿足日益增長的需求。",
+			"tags": [],
+			"links": [
+				"https://tuic.gov.taipei/youbike",
+				"https://github.com/tpe-doit/YouBike-Optimization"
+			],
+			"contributors": ["tuic"]
+		},
+		"148": {
+			"id": 148,
+			"index": "build_point_area",
+			"map_config": [
+				{
+					"index": "build_point_area",
+					"type": "symbol",
+					"icon": "triangle_white",
+					"property": [
+						{
+							"key": "Area",
+							"name": "面積"
+						},
+						{
+							"key": "level",
+							"name": "面積等級"
+						}
+					],
+					"title": "住房面積"
+				}
+			],
+			"chart_config": {
+				"color": ["#CA0020", "#ff996d", "#f8c3ac"],
+				"types": ["DonutChart", "BarChart"],
+				"unit": "件",
+				"map_filter": ["level", ["high", "mid", "low"]]
+			},
+			"name": "住房面積",
+			"source": "資訊局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://tuic.gov.taipei/youbike",
+				"https://github.com/tpe-doit/YouBike-Optimization"
+			],
+			"contributors": ["tuic"]
+		},
+		"149": {
+			"id": 149,
+			"index": "pac-pavement",
+			"map_config": [
+				{
+					"index": "pac-pavement",
+					"type": "fill",
+					"paint": {
+						"fill-opacity": 1,
+						"fill-color": "#9D9152"
+					},
+					"property": [
+						{
+							"key": "面積",
+							"name": "面積"
+						}
+					],
+					"title": "透水鋪面"
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "fill",
+					"color": "#9D9152",
+					"name": "透水鋪面"
+				}
+			],
+			"name": "透水鋪面",
+			"source": "資訊局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://tuic.gov.taipei/youbike",
+				"https://github.com/tpe-doit/YouBike-Optimization"
+			],
+			"contributors": ["tuic"]
+		},
+		"150": {
+			"id": 149,
+			"index": "temperture",
+			"map_config": [
+				{
+					"index": "temperture",
+					"paint": {
+						"circle-color": [
+							"interpolate",
+							["linear"],
+							["get", "temperture"],
+							15,
+							"#00ffff",
+							17,
+							"#00dcff",
+							19,
+							"#00b8ff",
+							21,
+							"#0094ff",
+							23,
+							"#0070ff",
+							25,
+							"#ffdf00",
+							27,
+							"#ffae00",
+							29,
+							"#ff7d00",
+							31,
+							"#ff4c00",
+							33,
+							"#ff1b00",
+							35,
+							"#ff1b00"
+						]
+					},
+					"property": [
+						{
+							"key": "temperture",
+							"name": "溫度"
+						}
+					],
+					"icon": "heatmap",
+					"type": "circle",
+					"title": "溫度"
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "fill",
+					"color": "#9D9152",
+					"name": "溫度"
+				}
+			],
+			"name": "溫度圖",
+			"source": "資訊局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://tuic.gov.taipei/youbike",
+				"https://github.com/tpe-doit/YouBike-Optimization"
+			],
+			"contributors": ["tuic"]
+		},
+		"151": {
+			"id": 151,
+			"index": "precipitation",
+			"map_config": [
+				{
+					"index": "precipitation",
+					"paint": {
+						"circle-color": [
+							"interpolate",
+							["linear"],
+							["get", "precipitation"],
+							100,
+							"#00ff00",
+							200,
+							"#80ff00",
+							300,
+							"#caff00",
+							400,
+							"#fffa00",
+							500,
+							"#ffcc00",
+							600,
+							"#ff9a00",
+							700,
+							"#ff6600",
+							800,
+							"#ff3300",
+							900,
+							"#ff0000",
+							1000,
+							"#800080",
+							1100,
+							"#800080"
+						]
+					},
+					"property": [
+						{
+							"key": "precipitation",
+							"name": "降雨"
+						}
+					],
+					"icon": "heatmap",
+					"type": "circle",
+					"title": "降雨"
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "fill",
+					"color": "#9D9152",
+					"name": "降雨"
+				}
+			],
+			"name": "降雨圖",
+			"source": "資訊局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://tuic.gov.taipei/youbike",
+				"https://github.com/tpe-doit/YouBike-Optimization"
+			],
+			"contributors": ["tuic"]
+		},
+		"152": {
+			"id": 152,
+			"index": "gogoro",
+			"map_config": [
+				{
+					"index": "gogoro_taipei",
+					"type": "symbol",
+					"icon": "bus",
+					"title": "gogoro交換站"
+				},
+				{
+					"index": "gogoro_taipei",
+					"type": "buffer",
+					"property": [
+						{
+							"key": "地址",
+							"name": "ID地址"
+						}
+					],
+					"size": null,
+					"title": "gogoro交換站(Buffer)"
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "symbol",
+					"color": null,
+					"name": "gogoro交換站",
+					"value": null,
+					"icon": "bus"
+				}
+			],
+			"name": "gogoro交換站(Buffer)",
+			"source": "TDX",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://tuic.gov.taipei/youbike",
+				"https://github.com/tpe-doit/YouBike-Optimization"
+			],
+			"contributors": ["tuic"]
+		},
+		"153": {
+			"id": 153,
+			"index": "bus_station_buffer",
+			"map_config": [
+				{
+					"index": "traffic_bus_station_view",
+					"property": [
+						{
+							"key": "stationid",
+							"name": "ID"
+						},
+						{
+							"key": "stationname",
+							"name": "站名"
+						}
+					],
+					"type": "symbol",
+					"icon": "bus",
+					"title": "公車站"
+				},
+				{
+					"index": "traffic_bus_station_view",
+					"property": [
+						{
+							"key": "stationid",
+							"name": "ID"
+						},
+						{
+							"key": "stationname",
+							"name": "站名"
+						}
+					],
+					"type": "buffer",
+					"icon": "bus",
+					"title": "公車站"
+				}
+			],
+			"name": "公車站(Buffer)",
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "symbol",
+					"color": null,
+					"name": "公車站",
+					"value": null,
+					"icon": "bus"
+				}
+			],
+			"source": "交通局",
+			"time_from": null,
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"contributors": ["tuic"]
+		},
+		"154": {
+			"id": 154,
+			"index": "youbike_availability",
+			"map_config": [
+				{
+					"index": "traffic_youbike",
+					"icon": "youbike",
+					"type": "symbol",
+					"title": "youbike站點"
+				},
+				{
+					"index": "traffic_youbike",
+					"icon": "youbike",
+					"type": "buffer",
+					"title": "youbike站點"
+				}
+			],
+			"chart_config": {
+				"types": ["MapLegend"]
+			},
+			"chart_data": [
+				{
+					"type": "symbol",
+					"color": null,
+					"name": "youbike站點",
+					"value": null,
+					"icon": "youbike"
+				}
+			],
+			"source": "交通局",
+			"name": "YouBike站點(Buffer)",
+			"time_from": "2023-05-31T00:00:00+08:00",
+			"time_to": null,
+			"update_freq": 5,
+			"update_freq_unit": "minute",
+			"short_desc": "顯示當前全市共享單車YouBike的使用情況",
+			"long_desc": "顯示當前全市共享單車YouBike的使用情況，格式為可借車輛數/全市車位數。資料來源為交通局公開資料，每5分鐘更新。",
+			"use_case": "藉由YouBike使用情況的顯示，以及全市車輛約為柱數一半，可掌握全市目前停在站上與被使用中的車輛大約數字，並可在地圖模式查詢各站點詳細資訊。",
+			"links": [
+				"https://tdx.transportdata.tw/api-service/swagger/basic/2cc9b888-a592-496f-99de-9ab35b7fb70d#/Bike/BikeApi_Availability_2181"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"155": {
+			"id": 73,
+			"index": "metro_station",
+			"map_config": [
+				{
+					"index": "traffic_metro_station_new",
+					"property": [
+						{
+							"key": "stationid",
+							"name": "ID"
+						},
+						{
+							"key": "stationname2",
+							"name": "站名"
+						},
+						{
+							"key": "enter",
+							"name": "進站人數"
+						},
+						{
+							"key": "leave",
+							"name": "出站人數"
+						}
+					],
+					"type": "symbol",
+					"size": null,
+					"icon": "metro",
+					"title": "捷運站"
+				},
+				{
+					"index": "traffic_metro_station_new",
+					"type": "buffer",
+					"size": null,
+					"title": "捷運站"
+				}
+			],
+			"chart_config": {
+				"color": ["#2e999b", "#80e3d4"],
+				"types": ["TimelineStackedChart", "TimelineSeparateChart"],
+				"unit": "人次"
+			},
+			"name": "捷運站(Buffer)",
+			"history_data": true,
+			"source": "捷運局",
+			"time_from": "2023-05-26T23:29:00+08:00",
+			"time_to": null,
+			"update_freq": 30,
+			"update_freq_unit": "minute",
+			"short_desc": "顯示過去一段時間內全市捷運進出站人流變化",
+			"long_desc": "顯示過去一段時間內全市捷運進出站人流變化，資料來源為台北市捷運工程局內部資料，每30分鐘更新。",
+			"use_case": "掌握過去一段時間內台北市捷運進出站人流變化，包括高峰與低峰時段，有助於更好地管理交通流量與安排車輛運行。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=63f31c7e-7fc3-418b-bd82-b95158755b4d"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"156": {
+			"id": 148,
+			"index": "WaterStorage",
+			"map_config": [
+				{
+					"index": "WaterStorage",
+					"type": "symbol",
+					"icon": "triangle_white",
+					"property": [
+						{
+							"key": "water_storage",
+							"name": "儲水量"
+						},
+						{
+							"key": "level",
+							"name": "面積等級"
+						}
+					],
+					"title": "住房儲水量"
+				}
+			],
+			"chart_config": {
+				"color": ["#CA0020", "#ff996d", "#f8c3ac"],
+				"types": ["DonutChart", "BarChart"],
+				"unit": "件",
+				"map_filter": ["level", ["high", "mid", "low"]]
+			},
+			"name": "住房儲水量",
+			"source": "資訊局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
+			"tags": [],
+			"links": [
+				"https://tuic.gov.taipei/youbike",
+				"https://github.com/tpe-doit/YouBike-Optimization"
+			],
+			"contributors": ["tuic"]
+		},
+		"157": {
+			"id": 148,
+			"index": "solar_panel",
+			"map_config": [
+				{
+					"index": "solar_panel",
+					"type": "symbol",
+					"icon": "triangle_white",
+					"property": [
+						{
+							"key": "water_storage",
+							"name": "發電量"
+						},
+						{
+							"key": "level",
+							"name": "面積等級"
+						}
+					],
+					"title": "住房儲水量"
+				}
+			],
+			"chart_config": {
+				"color": ["#CA0020", "#ff996d", "#f8c3ac"],
+				"types": ["DonutChart", "BarChart"],
+				"unit": "件",
+				"map_filter": ["level", ["high", "mid", "low"]]
+			},
+			"name": "住房發電量",
+			"source": "資訊局",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "",
+			"use_case": "",
 			"tags": [],
 			"links": [
 				"https://tuic.gov.taipei/youbike",

@@ -43,9 +43,26 @@
 			"icon": "handshake"
 		},
 		{
+			"name": "韌性城市",
+			"index": "resilienceCity",
+			"components": [
+				"148",
+				"149",
+				"150",
+				"151",
+				"152",
+				"153",
+				"154",
+				"155",
+				"156",
+				"157"
+			],
+			"icon": "construction"
+		},
+		{
 			"name": "測試組件",
 			"index": "testing",
-			"components": ["117", "118", "61", "74"],
+			"components": ["117", "118", "61", "74", "148", "149", "150"],
 			"icon": "bug_report"
 		},
 		{
