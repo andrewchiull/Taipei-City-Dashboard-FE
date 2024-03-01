@@ -8,7 +8,7 @@
 .env.local
 .env
 
-# Log files
+# Log files.
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
